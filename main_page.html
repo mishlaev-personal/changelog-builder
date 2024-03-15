@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Email Template Builder</title>
+</head>
+<link rel="stylesheet" href="styles.css" type="text/css" media="all">
+<body>
+  <div class="container">
+      <div class="control-panel">
+          <div class="option">
+              <h3>Width</h3>
+              <button class="width-btn active" data-width="680px">680px</button>
+              <button class="width-btn" data-width="600px">600px</button>
+              <button class="width-btn" data-width="430px">430px</button>
+          </div>
+          <div class="option">
+              <h3>Theme</h3>
+              <button class="theme-btn active" data-theme="light">Light</button>
+              <button class="theme-btn" data-theme="dark">Dark</button>
+          </div>
+          <div class="option">
+              <h3>Primary Color</h3>
+              <input type="color" id="primary-color" value="#007bff">
+          </div>
+          <div class="option">
+              <h3>Border & Radius</h3>
+              <button class="border-btn active" data-border="true">On</button>
+              <button class="border-btn" data-border="false">Off</button>
+              <input type="range" id="radius-range" min="0" max="20" value="4">
+          </div>
+          <div class="option">
+              <h3>Logo Position</h3>
+              <button class="logo-btn" data-position="left">Left</button>
+              <button class="logo-btn active" data-position="center">Center</button>
+              <button class="logo-btn" data-position="right">Right</button>
+          </div>
+          <div class="option">
+            <h3>Safe Fonts</h3>
+            <select id="font-select">
+                <option value="Arial, sans-serif" selected>Arial</option>
+                <option value="Verdana, sans-serif">Verdana</option>
+                <option value="Tahoma, sans-serif">Tahoma</option>
+                <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+                <option value="'Times New Roman', serif">Times New Roman</option>
+                <option value="Georgia, serif">Georgia</option>
+                <option value="Garamond, serif">Garamond</option>
+                <option value="'Courier New', monospace">Courier New</option>
+                <option value="'Brush Script MT', cursive">Brush Script MT</option>
+            </select>
+        </div>
+        <div class="option">
+          <h3>Text Size</h3>
+          <select id="text-size-select">
+              <option value="13px" selected>13px</option>
+              <option value="15px">15px</option>
+              <option value="16px">16px</option>
+              <option value="18px">18px</option>
+          </select>
+      </div>
+      <div class="option">
+        <label><input type="checkbox" id="google-font-checkbox"> Use Google Font</label>
+        <select id="google-font-select" disabled>
+            <option value="Roboto" data-fallback="Arial, Helvetica, sans-serif" selected>Roboto</option>
+            <option value="Open Sans" data-fallback="Arial, Helvetica, sans-serif">Open Sans</option>
+            <option value="Lato" data-fallback="Arial, Helvetica, sans-serif">Lato</option>
+            <option value="Montserrat" data-fallback="Arial, Helvetica, sans-serif">Montserrat</option>
+            <option value="Oswald" data-fallback="Arial, Helvetica, sans-serif">Oswald</option>
+            <option value="Source Sans Pro" data-fallback="Arial, Helvetica, sans-serif">Source Sans Pro</option>
+            <option value="Raleway" data-fallback="Arial, Helvetica, sans-serif">Raleway</option>
+            <option value="Roboto Condensed" data-fallback="Arial Narrow, Arial, sans-serif">Roboto Condensed</option>
+            <option value="Poppins" data-fallback="Arial, Helvetica, sans-serif">Poppins</option>
+            <option value="Noto Sans" data-fallback="Arial, Helvetica, sans-serif">Noto Sans</option>
+            <option value="Merriweather" data-fallback="Georgia, serif">Merriweather</option>
+            <option value="Playfair Display" data-fallback="Times New Roman, Times, serif">Playfair Display</option>
+            <option value="Roboto Slab" data-fallback="Rockwell, serif">Roboto Slab</option>
+            <option value="Lora" data-fallback="Georgia, serif">Lora</option>
+            <option value="Roboto Mono" data-fallback="Courier New, Courier, monospace">Roboto Mono</option>
+            <option value="Inconsolata" data-fallback="Courier New, Courier, monospace">Inconsolata</option>
+            <option value="Lobster" data-fallback="Brush Script MT, cursive">Lobster</option>
+            <option value="Pacifico" data-fallback="Brush Script MT, cursive">Pacifico</option>
+            <option value="Shadows Into Light" data-fallback="Bradley Hand, cursive">Shadows Into Light</option>
+            <option value="Dancing Script" data-fallback="Brush Script MT, cursive">Dancing Script</option>
+        </select>
+    </div>
+      </div>
+      <div class="email-preview">
+          <iframe id="email-iframe" src="email.html"></iframe>
+      </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
