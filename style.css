@@ -1,0 +1,73 @@
+body {
+  background-color: #1c1c1c;
+  margin: 0;
+  padding: 0;
+  color: #9d9d9d;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-panel, .right-panel {
+  flex: 0 0 200px;
+  padding: 12px;
+  overflow-y: auto;
+  background-color: #252526;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+textarea {
+  font-size: 12px;
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: #333333;
+  color: #9b9b9b;
+  border: none;
+  padding: 5px;
+}
+
+.center-panel {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #1e1e1e;
+}
+
+#email-preview {
+  background-color: gray;
+  color: #000;
+  text-align: center;
+}
+
+button {
+  margin: 0 5px 0 0;
+  font-size: 13px;
+  border: none;
+  border-radius: 2px;
+  background-color: #000000;
+  color: #9b9b9b;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button.active {
+  background-color: #000000;
+  color: #fff;
+}
+
+button:hover {
+  background-color: #005999;
+}
+
+button.active:hover {
+  background-color: #b272ff;
+}
