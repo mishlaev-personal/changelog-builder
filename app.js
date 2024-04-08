@@ -14,9 +14,10 @@ function updatePreview() {
             const [key, value] = pair.split(':').map(item => item.trim());
             props[key] = value.replace(/^'(.*)'$/, '$1');
           });
+          props.selectedOptions = selectedOptions; // Add selectedOptions to props
           return snippet(props);
         } else {
-          return snippet({});
+          return snippet({ selectedOptions }); // Pass selectedOptions as props
         }
       } else {
         return snippet;

@@ -43,7 +43,7 @@ const variables = {
     classic: {
       global: '40',
       bigGap: '24',
-      gap: '8',
+      gap: '10',
     },
     Compact: {
       global: '32',
@@ -55,7 +55,7 @@ const variables = {
     px16: {
       header1: '40',
       header2: '26',
-      header3: '18',
+      header3: '21  ',
       paragraph: '16',
       small: '14',
     },
@@ -121,12 +121,11 @@ const variables = {
       ctaBgHover: '#0a33ff',
       ctaText: '#ffffff',
       titles: '#111827',
-      text: '#333333',
+      text: '#113226',
       textDim: '#6b7280;',
       link: '#2142e7',
       linkHover: '#111827',
       calloutBg: '#e9ecfd',
-      calloutText: '#113226',
     },
     greenDark: {
       backgroundMain: '#13221C',
@@ -141,7 +140,6 @@ const variables = {
       link: '#ffffff',
       linkHover: '#39D97C',
       calloutBg: '#1F2F29',
-      calloutText: '#c3cecb',
     },
     dark: {
       backgroundMain: '#161616',
@@ -156,7 +154,6 @@ const variables = {
       link: '#BABABA',
       linkHover: '#EDEDED',
       calloutBg: '#232323',
-      calloutText: '#A0A0A0',
     },
     sand: {
       backgroundMain: '#FBF7EE',
@@ -171,9 +168,14 @@ const variables = {
       link: '#4262ff',
       linkHover: '#183eff',
       calloutBg: '#f5f5f7',
-      calloutText: '#1c1c1e',
     }
-  }
+  },
+  featureListIteamDescription: {
+    show: ``,
+    hide: `display: none;`,
+  },
+
+  
 };
 
 const snippets = {
@@ -181,9 +183,7 @@ const snippets = {
   headerBlock: {
     airOld: `
         <tr em="block" class="em-structure">
-            <td align="center"
-                style="padding: {{padding.global}}px {{padding.global}}px {{padding.gap}}px; border-top-left-radius: {{curveness.border}}px; border-top-right-radius: {{curveness.border}}px; border-width: {{border.width}}px {{border.width}}px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: {{color.border}}; border-right-color: {{color.border}}; border-left-color: {{color.border}}; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
-                class="em-mob-padding_left-20 em-mob-padding_right-20" bgcolor="{{color.backgroundContent}}">
+            <td align="center" {{noBgAndBorderTopLogic}}>
                 <table border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
                 <tr>
                     <td width="{{innerColWidthMath}}" valign="top" class="em-mob-wrap em-mob-width-100perc">
@@ -201,61 +201,40 @@ const snippets = {
         </tr>
         `,
     air: `<tr em="block" class="em-structure">
-        <td align="center"
-          style="padding: {{padding.global}}px {{padding.global}}px {{padding.gap}}px; border-top-left-radius: {{curveness.border}}px; border-top-right-radius: {{curveness.border}}px; border-width: {{border.width}}px {{border.width}}px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: {{color.border}}; border-right-color: {{color.border}}; border-left-color: {{color.border}}; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
-          class="em-mob-padding_right-10 em-mob-padding_left-10" bgcolor="{{color.backgroundContent}}">
-          <table border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
+  <td align="center" {{noBgAndBorderTopLogic}}>
+    <table border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
+      <tr>
+        <td width="{{innerColWidthMath}}" valign="top" class="em-mob-wrap em-mob-wrap-cancel em-mob-width-auto">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom">
             <tr>
-              <td width="272" valign="top" class="em-mob-wrap em-mob-wrap-cancel em-mob-width-auto">
-                <table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom">
-                  <tr>
-                    <td>
-                      <img src="{{companyLogo}}" border="0" alt="{{companyName}}" style="display: block;" height="{{logoHight}}">
-                    </td>
-                  </tr>
-                </table>
-              </td>
-              <td width="20" class="em-mob-wrap em-mob-wrap-cancel"></td>
-              <td width="100%" valign="middle" class="em-mob-wrap em-mob-wrap-cancel em-mob-width-auto"
-                style="padding: 0px;">
-                <table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom">
-                  <tr>
-                    <td style="padding: 0px; height: 100%;" valign="middle" height="100%">
-                      <div style="font-family: {{fontFamily.mainFallback}};" class="em-font-main"
-                        align="right"><a href="" target="_blank"
-                          style="text-decoration: underline; font-size: {{fontSize.small}}px; line-height: {{fontSizeSmallHightMath}}px; color: {{color.textDim}}"><span
-                            class="text-gray">View in browser</span></a></div>
-                    </td>
-                  </tr>
-                </table>
+              <td>
+                <img src="{{companyLogo}}" border="0" alt="{{companyName}}" style="display: block;"
+                  height="{{logoHight}}">
               </td>
             </tr>
           </table>
         </td>
-      </tr>`,
+        <td width="20" class="em-mob-wrap em-mob-wrap-cancel"></td>
+        <td width="100%" valign="middle" class="em-mob-wrap em-mob-wrap-cancel em-mob-width-auto" style="padding: 0px;">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom">
+            <tr>
+              <td style="padding: 0px; height: 100%;" valign="middle" height="100%">
+                <div style="font-family: {{fontFamily.mainFallback}};" class="em-font-main" align="right"><a href=""
+                    target="_blank"
+                    style="text-decoration: underline; font-size: {{fontSize.small}}px; line-height: {{fontSizeSmallHightMath}}px; color: {{color.textDim}}"><span
+                      class="text-gray">View in browser</span></a></div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>`,
   },
   announcementeBlock: {
     air: `
-    <tr em="block" class="em-structure">
-      <td align="center"
-      style="padding: 0px {{padding.global}}px; border-width: 0px {{border.width}}px; border-right-style: solid; border-left-style: solid; border-right-color: {{color.border}}; border-left-color: {{color.border}}; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
-      class="em-mob-padding_right-10 em-mob-padding_left-10" bgcolor="{{color.backgroundContent}}">
-        <table border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
-          <tr>
-            <td width="{{innerColWidthMath}}" valign="top" class="em-mob-wrap em-mob-width-100perc">
-              <table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom">
-                <tr>
-                  <td style="padding-top: 20px;">
-                    <img src="{{mainFeatureImage}}" width="100%" border="0" alt=""
-                      style="display: block; width: 100%; max-width: 100%;">
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
+    {{fullWidthImageLayout}}
 
     <!--tags-wrapper: start-->
   <tr em="block" class="em-structure">
@@ -319,9 +298,7 @@ const snippets = {
   },
   dateTitleBlock: {
     air: `<tr em="block" class="em-structure">
-    <td align="center"
-      style="padding: 0px {{padding.global}}px; border-width: 0px {{border.width}}px; border-right-style: solid; border-left-style: solid; border-right-color: {{color.border}}; border-left-color: {{color.border}}; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
-      class="em-mob-padding_right-10 em-mob-padding_left-10" bgcolor="{{color.backgroundContent}}">
+    <td align="center" {{noBgAndBorderMiddleLogic}}>
       <table border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
         <tr>
           <td width="{{innerColWidthMath}}" valign="top" class="em-mob-wrap em-mob-width-100perc">
@@ -363,31 +340,46 @@ const snippets = {
               </table>
             </td>
           </tr>`,
-    line: `<!--divider-->
-    <tr em="block" class="em-structure">
-    <td align="center"
-      style="padding: {{padding.bigGap}}px {{padding.global}}px {{padding.gap}}px; border-width: 0px {{border.width}}px; border-right-style: solid; border-left-style: solid; border-right-color: {{color.border}}; border-left-color: {{color.border}}; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
-      class="em-mob-padding_right-10 em-mob-padding_left-10" bgcolor="{{color.backgroundContent}}">
-      <table border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
+    line: `{{lineDividerBlock}}`,
+    framing: (props) => `<!--divider-->
+  <tr em="block" class="em-structure" style="display:${props.hideFirst};">
+  <td align="center"
+    style="border-right: {{border.width}}px solid {{color.border}}; border-bottom: {{border.width}}px solid {{color.border}}; border-left: {{border.width}}px solid {{color.border}}; border-bottom-left-radius: {{curveness.border}}px; border-bottom-right-radius: {{curveness.border}}px; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
+    class="em-mob-padding_right-10 em-mob-padding_left-10" bgcolor="{{color.backgroundContent}}">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom" style="display:${props.hideFirst};">
+      <tr>
+        <td height="{{paddingGlobalMinusGapMath}}"></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr em="block" class="em-structure">
+    <td align="center" style="border-width: 0px; background-color: {{color.backgroundMain}}; background-repeat: repeat;
+    class="em-mob-padding_right-10 em-mob-padding_left-10" bgcolor="{{color.backgroundMain}}">
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom">
         <tr>
-          <td width="{{innerColWidthMath}}" valign="top" class="em-mob-wrap em-mob-width-100perc">
-            <table cellpadding="0" cellspacing="0" border="0" em="atom" width="100%">
-              <tr>
-                <td style="padding: 0px; border-top: {{border.width}}px solid {{color.border}};">&nbsp;</td>
-              </tr>
-            </table>
-          </td>
+          <td height="${props.gapHeight}"></td>
         </tr>
       </table>
     </td>
-  </tr>`,
+</tr>
+  <tr em="block" class="em-structure" style="display:${props.hideLast};">
+      <td align="center"
+        style="border-top-left-radius: {{curveness.border}}px; border-top-right-radius: {{curveness.border}}px; border-width: {{border.width}}px {{border.width}}px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: {{color.border}}; border-right-color: {{color.border}}; border-left-color: {{color.border}}; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
+        class="em-mob-padding_left-20 em-mob-padding_right-20" bgcolor="{{color.backgroundContent}}">
+        <table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom" style="display:${props.hideLast};">
+          <tr>
+            <td height="{{paddingGlobalMinusGapMath}}"></td>
+          </tr>
+        </table>
+      </td>
+  </tr>
+    `,
   },
   introBlock: {
-    arcade: `
+    bigFeature: `
         <tr em="block" class="em-structure">
-        <td align="center"
-            style="padding: 0px {{padding.global}}px; border-width: 0px {{border.width}}px; border-right-style: solid; border-left-style: solid; border-right-color: {{color.border}}; border-left-color: {{color.border}}; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
-            class="em-mob-padding_left-20 em-mob-padding_right-20" bgcolor="{{color.backgroundContent}}">
+        <td align="center" {{noBgAndBorderMiddleLogic}}>
             <table border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
                 <tr>
                 <td width="{{innerColWidthMath}}" valign="top" class="em-mob-wrap em-mob-width-100perc">
@@ -420,7 +412,7 @@ const snippets = {
   calloutBlock: {
     background: `<tr em="block" class="em-structure">
     <td align="center"
-      style="padding: {{padding.bigGap}}px {{padding.global}}px; border-width: 0px {{border.width}}px; border-right-style: solid; border-left-style: solid; border-right-color: {{color.border}}; border-left-color: {{color.border}}; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
+      style="padding: {{padding.gap}}px {{padding.global}}px; border-width: 0px {{border.width}}px; border-right-style: solid; border-left-style: solid; border-right-color: {{color.border}}; border-left-color: {{color.border}}; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
       class="em-mob-padding_right-10 em-mob-padding_left-10" bgcolor="{{color.backgroundContent}}">
       <table border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
         <tr>
@@ -431,7 +423,7 @@ const snippets = {
                   style="padding: {{fontSize.paragraph}}px; background-color: {{color.calloutBg}}; background-repeat: repeat; border-radius: {{curveness.border}}px;"
                   bgcolor="{{color.calloutBg}}">
                   <div
-                    style="font-family: {{fontFamily.mainFallback}}; font-size: {{fontSize.paragraph}}px; line-height: {{fontSizeParagraphHightMath}}px; color: {{color.calloutText}};"
+                    style="font-family: {{fontFamily.mainFallback}}; font-size: {{fontSize.paragraph}}px; line-height: {{fontSizeParagraphHightMath}}px; color: {{color.text}};"
                     class="em-font-main">🕹 <strong>Pro tip</strong>: Get ahead of spring cleaning
                       and organize your Arcades into folders (and tags for a layer deeper!) Time spent
                       organizing will unlock deeper insights and allow you to curate groups of Arcade for
@@ -570,7 +562,7 @@ const snippets = {
                   <div style="line-height: {{fontSizeHeader3HightMath}}px; padding-right: 18px; vertical-align: bottom;"><a href="#" target="_blank"
                       style="color: {{color.titles}}; text-decoration: none; font-family: {{fontFamily.mainFallback}}; font-size: {{fontSize.header3}}px;"
                       new="true" class="em-font-title title">CSV Downloads</a>
-                      {{likeButtonInline}}
+                      {{likeButtonInline(height: '{{fontSize.paragraph}}')}}
                   </div>
                 </td>
               </tr>
@@ -637,18 +629,10 @@ const snippets = {
   footerBlock: {
     simple: `
         <tr em="block" class="em-structure">
-            <td align="center"
-              style="padding: {{padding.bigGap}}px {{padding.global}}px {{padding.global}}px; border-right: {{border.width}}px solid {{color.border}}; border-bottom: {{border.width}}px solid {{color.border}}; border-left: {{border.width}}px solid {{color.border}}; border-bottom-left-radius: {{curveness.border}}px; border-bottom-right-radius: {{curveness.border}}px; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
-              class="em-mob-padding_left-20 em-mob-padding_right-20" bgcolor="{{color.backgroundContent}}">
+            <td align="center" {{noBgAndBorderBottomLogic}}>
               <table border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
                 <tr>
                   <td width="{{innerColWidthMath}}" valign="top" class="em-mob-wrap em-mob-width-100perc">
-
-                    <table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom">
-                      <tr>
-                        <td height="0" style="padding: 20px 0 0; border-top: {{border.width}}px solid {{color.border}};">&nbsp;</td>
-                      </tr>
-                    </table>
                     <table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom">
                       <tr>
                         <td style="padding: 0px;">
@@ -668,30 +652,10 @@ const snippets = {
           </tr>
         `,
     socialMedia: `
-    <!-- Footer Socail Media and address -->
-    <tr em="block" class="em-structure">
-    <td align="center"
-      style="padding: {{padding.bigGap}}px {{padding.global}}px {{padding.gap}}px; border-width: {{border.width}}px; border-color: {{color.border}}; border-left-style: solid; border-right-style: solid;"
-      bgcolor="{{color.backgroundContent}}" class="em-mob-padding_right-10 em-mob-padding_left-10">
-      <table border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
-        <tr>
-          <td width="{{innerColWidthMath}}" align="center" class="em-mob-wrap em-mob-wrap-cancel em-mob-width-auto">
-
-            <table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom">
-              <tr>
-                <td height="0" style="padding: 0px; border-top: {{border.width}}px solid {{color.border}};">&nbsp;</td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
+    <!-- Footer with Socail Media and address -->
   {{socailMediaBlock}}
   <tr em="block" class="em-structure">
-    <td align="center"
-      style="padding: 0px {{padding.global}}px {{padding.global}}px; border-right: {{border.width}}px solid {{color.border}}; border-bottom: {{border.width}}px solid {{color.border}}; border-left: {{border.width}}px solid {{color.border}}; border-bottom-left-radius: {{curveness.border}}px; border-bottom-right-radius: {{curveness.border}}px; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
-      class="em-mob-padding_right-10 em-mob-padding_left-10" bgcolor="{{color.backgroundContent}}">
+    <td align="center" {{noBgAndBorderBottomLogic}}>
       <table border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
         <tr>
           <td width="{{innerColWidthMath}}" valign="top" class="em-mob-wrap em-mob-width-100perc">
@@ -731,9 +695,7 @@ const snippets = {
   },
   socailMediaBlock: {
     dark: `<tr em="block" class="em-structure">
-    <td align="center"
-      style="padding: {{padding.gap}}px {{padding.global}}px; border-width: {{border.width}}px; border-color: {{color.border}}; border-left-style: solid; border-right-style: solid;"
-      bgcolor="{{color.backgroundContent}}" class="em-mob-padding_right-10 em-mob-padding_left-10">
+    <td align="center" {{noBgAndBorderMiddleLogic}}>
       <table border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
         <tr>
           <td width="{{innerColWidthMath}}" align="left" class="em-mob-wrap em-mob-wrap-cancel em-mob-width-auto">
@@ -759,6 +721,28 @@ const snippets = {
     </td>
   </tr>`,
   },
+
+  lineDividerBlock: {
+    line: `<!--divider-->
+    <tr em="block" class="em-structure">
+    <td align="center"
+      style="padding: {{padding.bigGap}}px {{padding.global}}px {{padding.gap}}px; border-width: 0px {{border.width}}px; border-right-style: solid; border-left-style: solid; border-right-color: {{color.border}}; border-left-color: {{color.border}}; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
+      class="em-mob-padding_right-10 em-mob-padding_left-10" bgcolor="{{color.backgroundContent}}">
+      <table border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
+        <tr>
+          <td width="{{innerColWidthMath}}" valign="top" class="em-mob-wrap em-mob-width-100perc">
+            <table cellpadding="0" cellspacing="0" border="0" em="atom" width="100%">
+              <tr>
+                <td style="padding: 0px; border-top: {{noEmptyLineDividerLogic}}px solid {{color.border}};">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>`,
+  },
+
   adminWarningBlock: {
     off: ``,
     on: `<tr em="block" class="em-structure">
@@ -903,7 +887,7 @@ const snippets = {
     <table cellpadding="0" cellspacing="0" border="0" em="atom">
       <tr>
       <!--TODO: Calculate button sizes-->
-        <td style="padding: 10px 0;">
+        <td>
           <table cellpadding="0" cellspacing="0" border="0">
             <tr>
               <td align="center" valign="middle"
@@ -930,27 +914,28 @@ const snippets = {
     </table>
   </td>`,
   },
+
   featureListIteamAtom: {
     headerAndText: (props) => `<table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom">
     <tr>
       <td
-        style="padding: 4px 12px; background-color: ${props.bgcolor}; background-repeat: repeat; border-radius: {{curveness.border}}px;"
+        style="padding: {{paddingGapQuaterMath}}px {{padding.gap}}px; background-color: ${props.bgcolor}; background-repeat: repeat; border-radius: {{curveness.border}}px;"
         bgcolor="${props.bgcolor}">
         <table cellpadding="0" cellspacing="0" border="0" width="100%">
           <tr>
-            <td align="left" valign="top" width="20">
-              <div
-                style="font-family: {{fontFamily.mainFallback}}; font-size: {{fontSize.paragraph}}px; line-height: {{fontSizeParagraphHightMath}}px; color: {{color.text}};"
-                class="em-font-main">${props.emoji}</div>
+            <td align="left" valign="top" width="{{fontSizeParagraphHightMath}}" style="padding: 1px {{paddingGapHalfMath}}px 0 {{paddingGapHalfMath}}px;">
+            <div
+              style="font-family: {{fontFamily.mainFallback}}; font-size: {{fontSize.paragraph}}px; line-height: {{fontSizeParagraphHightMath}}px; color: {{color.text}};"
+              class="em-font-main">${props.emoji}</div>
             </td>
-            <td width="12">&nbsp;</td>
             <td align="left" valign="top" style="padding-bottom: 0px; padding-top: 0px;">
               <div
                 class="em-font-main"><a href="#" class="em-font-main title"
                   style="line-height: {{fontSizeParagraphHightMath}}px; font-size: {{fontSize.paragraph}}px; color: {{color.text}}; font-family: {{fontFamily.mainFallback}}; text-decoration: none;">
                   ${props.title}</a></span>
-                {{likeButtonInline}}
-                <br><span style="font-family: {{fontFamily.mainFallback}}; line-height: {{fontSizeParagraphHightMath}}px; font-size: {{fontSize.paragraph}}px; color: {{color.textDim}};">${props.description}
+                {{likeButtonInline(height: '{{fontSize.paragraph}}')}}
+                <span style="{{featureListIteamDescription}} font-family: {{fontFamily.mainFallback}}; line-height: {{fontSizeParagraphHightMath}}px; font-size: {{fontSize.paragraph}}px; color: {{color.textDim}};">
+                <br>${props.description}
                 </span>
                 <br>
               </div>
@@ -965,39 +950,109 @@ const snippets = {
       <td height="4"></td>
     </tr>
   </table>`,
-    headers: (props) => `<table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom">
-    <tr>
-      <td
-        style="padding: 6px {{padding.gap}}px; background-color: ${props.bgcolor}; background-repeat: repeat; border-radius: 8px;"
-        bgcolor="${props.bgcolor}">
-        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+  },
+
+  // If we chose border width No and we have a line divider On, the diveder shouldn't disapper 
+  noEmptyLineDividerLogic: {
+    noLess: (props) => {
+      const { selectedOptions } = props;
+      if (selectedOptions.border === 'no') {
+        return `1`;
+      } else {
+        return `{{border.width}}`;
+      }
+    },
+  },
+
+  // For the Divider = Framing remove border and background  
+  noBgAndBorderTopLogic: {
+    noLess: (props) => {
+      const { selectedOptions } = props;
+      if (selectedOptions.dividerBlockLayout === 'framing') {
+        return `style="padding: {{padding.global}}px {{padding.global}}px {{padding.gap}}px; border-width: 0px; background-color: {{color.backgroundMain}}; background-repeat: repeat;"
+        class="em-mob-padding_left-20 em-mob-padding_right-20" bgcolor="{{color.backgroundContent}}"`;
+      } else {
+        return `style="padding: {{padding.global}}px {{padding.global}}px {{padding.gap}}px; border-top-left-radius: {{curveness.border}}px; border-top-right-radius: {{curveness.border}}px; border-width: {{border.width}}px {{border.width}}px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: {{color.border}}; border-right-color: {{color.border}}; border-left-color: {{color.border}}; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
+        class="em-mob-padding_left-20 em-mob-padding_right-20" bgcolor="{{color.backgroundContent}}"`;
+      }
+    },
+  },
+
+  // For the Divider = Framing remove border and background  
+  noBgAndBorderMiddleLogic: {
+    noLess: (props) => {
+      const { selectedOptions } = props;
+      if (selectedOptions.dividerBlockLayout === 'framing') {
+        return `style="padding: 0px {{padding.global}}px; border-width: 0px; background-color: {{color.backgroundMain}}; background-repeat: repeat;"
+        class="em-mob-padding_right-10 em-mob-padding_left-10" bgcolor="{{color.backgroundMain}}"`;
+      } else {
+        return `style="padding: 0px {{padding.global}}px; border-width: 0px {{border.width}}px; border-right-style: solid; border-left-style: solid; border-right-color: {{color.border}}; border-left-color: {{color.border}}; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
+        class="em-mob-padding_right-10 em-mob-padding_left-10" bgcolor="{{color.backgroundContent}}"`;
+      }
+    },
+  },
+
+    // For the Divider = Framing remove border and background  
+    noBgAndBorderBottomLogic: {
+      noLess: (props) => {
+        const { selectedOptions } = props;
+        if (selectedOptions.dividerBlockLayout === 'framing') {
+          return `style="padding: {{padding.gap}}px {{padding.global}}px {{padding.global}}px; background-color: {{color.backgroundMain>}}; background-repeat: repeat;"
+          class="em-mob-padding_left-20 em-mob-padding_right-20" bgcolor="{{color.backgroundMain}}"`;
+        } else {
+          return `style="padding: {{padding.gap}}px {{padding.global}}px {{padding.global}}px; border-right: {{border.width}}px solid {{color.border}}; border-bottom: {{border.width}}px solid {{color.border}}; border-left: {{border.width}}px solid {{color.border}}; border-bottom-left-radius: {{curveness.border}}px; border-bottom-right-radius: {{curveness.border}}px; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
+          class="em-mob-padding_left-20 em-mob-padding_right-20" bgcolor="{{color.backgroundContent}}"`;
+        }
+      },
+    },
+
+  // Layout Style. part of block styling gives us ability to use full width images  
+  fullWidthImageLayout: {
+    mainCol: `
+    <tr em="block" class="em-structure">
+      <td align="center"
+      style="padding: 0px {{padding.global}}px; border-width: 0px {{border.width}}px; border-right-style: solid; border-left-style: solid; border-right-color: {{color.border}}; border-left-color: {{color.border}}; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
+      class="em-mob-padding_right-10 em-mob-padding_left-10" bgcolor="{{color.backgroundContent}}">
+        <table border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
           <tr>
-            <td align="left" valign="top" width="20">
-              <div
-                style="font-family: {{fontFamily.mainFallback}}; font-size: 20px; line-height: 26px; color: {{color.text}};"
-                class="em-font-main">${props.emoji}</div>
-            </td>
-            <td width="12">&nbsp;</td>
-            <td align="left" valign="top" style="padding-bottom: 0px; padding-top: 0px;">
-              <div
-                style="line-height: {{fontSizeParagraphHightMath}}px; font-size: {{fontSize.paragraph}}px;  padding-right: 18px;"><a href="#" class="em-font-main title"
-                  style="color: {{color.text}}; font-family: {{fontFamily.mainFallback}}; text-decoration: none;">${props.title}</a></span>
-                  {{likeButtonInline}}<br>
-              </div>
+            <td width="{{innerColWidthMath}}" valign="top" class="em-mob-wrap em-mob-width-100perc">
+              <table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom">
+                <tr>
+                  <td style="padding-top: 20px;">
+                    <img src="{{mainFeatureImage}}" width="100%" border="0" alt=""
+                      style="display: block; width: 100%; max-width: 100%;">
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
         </table>
       </td>
     </tr>
-  </table>
-  <table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom">
-    <tr>
-      <td height="4"></td>
-    </tr>
-  </table>`,
+    `,
+    full: `<tr em="block" class="em-structure">
+    <td align="center"
+    style="padding: 0px 0px; border-width: 0px {{border.width}}px; border-right-style: solid; border-left-style: solid; border-right-color: {{color.border}}; border-left-color: {{color.border}}; background-color: {{color.backgroundContent}}; background-repeat: repeat;"
+    class="em-mob-padding_right-10 em-mob-padding_left-10" bgcolor="{{color.backgroundContent}}">
+      <table border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
+        <tr>
+          <td width="{{mainWidth}}" valign="top" class="em-mob-wrap em-mob-width-100perc">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" em="atom">
+              <tr>
+                <td style="padding-top: 20px;">
+                  <img src="{{mainFeatureImage}}" width="100%" border="0" alt=""
+                    style="display: block; width: 100%; max-width: 100%;">
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>`,
   },
 
-   // Content some large content blocks containing Variables  
+  // Content some large content blocks containing Variables  
   mainFeatureContent: {
     arcade: `
         <a href="#" target="_blank"
@@ -1016,17 +1071,19 @@ const snippets = {
     main: `This is the preheader for {{companyName}} release notes`,
   },
 
-   // Inline buttons only for inline use inside Blocks or Atoms 
+  // Inline buttons only for inline use inside Blocks or Atoms 
   likeButtonInline: {
-    roundBackground: `
+    roundBackground: (props) => `
     <a href="#" target="_blank"
-    style="text-decoration: none; white-space: nowrap; padding-left: 6px;">
+    style="text-decoration: none; white-space: nowrap; padding-left: {{paddingGapHalfMath}}px;">
     <span class="rollover" style="display: inline-block;"><img src="images/like.png" border="0" alt="Like Button"
         style="display: block; vertical-align: middle;" class="like-btn"
-        height="18" width="18" title="❤︎ I Like That!"><img src="images/like-hover.png"
+        height="${props.height}" width="${props.height}" title="❤︎ I Like That!">
+        <!--
+        <img src="images/like-hover.png"
         border="0" alt="Like Button"
         style="display: block; vertical-align: middle; max-height:0px;"
-        class="like-btn-hover" height="18" width="18" title="❤︎ I Like That!">
+        class="like-btn-hover" height="${props.height}" width="${props.height}" title="❤︎ I Like That!">-->
     </span>
   </a>
   `,
@@ -1056,6 +1113,15 @@ const snippets = {
   },
   fontSizeSmallHightMath: {
     h1_6: `{{math.ceil({{fontSize.small}} * 1.6)}}`,
+  },
+  paddingGapHalfMath: {
+    gap0_2: `{{math.ceil({{padding.gap}} / 2)}}`,
+  },
+  paddingGapQuaterMath: {
+    gap0_25: `{{math.ceil({{padding.gap}} / 4)}}`,
+  },
+  paddingGlobalMinusGapMath: {
+    math: `{{math.evaluate('{{padding.global}} - {{padding.gap}}')}}`,
   },
 
 };
@@ -1087,7 +1153,7 @@ const contents = {
     option1: 'images/arcade_changelog.jpg',
     option2: 'images/arc-hero.gif',
     option3: 'images/designmodo-hero.png',
-
+    option4: 'images/hello-apple.jpg',
   },
   mainFeatureTitle: {
     option1: 'Multiple Arcades. One Landing Page.',

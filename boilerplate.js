@@ -164,7 +164,8 @@ only screen and (max-width:{{mainWidth}}px) {
 }
 
 .rollover:hover .like-btn {
-  max-height: 0px !important;
+  /* max-height: 0px !important; */
+  background-color: {{color.ctaBgHover}} !important;
   transition: 0.3s !important;
 }
 
@@ -202,16 +203,18 @@ only screen and (max-width:{{mainWidth}}px) {
 
             {{headerBlock}}
             {{dateTitleBlock}}
-            {{dividerBlock}}
+            {{dividerBlock(hideFirst: 'none', gapHeight: '{{padding.bigGap}}', hideLast: 'none')}}
             {{introBlock}}
+            {{dividerBlock(hideFirst: 'none', gapHeight: '{{padding.bigGap}}', hideLast: '')}}
             {{announcementeBlock}}
             {{reactionBlock}}
-            {{dividerBlock}}
+            {{dividerBlock(hideFirst: '', gapHeight: '{{padding.global}}', hideLast: '')}}
             {{featureListBlock}}
             {{calloutBlock}}
-            {{dividerBlock}}
+            {{dividerBlock(hideFirst: '', gapHeight: '{{padding.global}}', hideLast: '')}}
             {{featureListTitleBlock}}
             {{featureListWrapperBlock}}
+            {{dividerBlock(hideFirst: '', gapHeight: '{{padding.global}}', hideLast: 'none')}}
             {{footerBlock}}
 
         <!--start of boilerplate footer-->
